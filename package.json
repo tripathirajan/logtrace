@@ -1,0 +1,45 @@
+{
+  "name": "@tripathirajan/logtrace",
+  "version": "1.0.0-beta",
+  "description": "logger on the top of pino",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Rajan Tripathi <tripathirajan3@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "logger",
+    "log",
+    "typescript",
+    "json logger"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "prebuild": "npm run lint && npm run format",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "format": "prettier --write \"lib/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A lib",
+    "postversion": "git push && git push --tags",
+    "format:fix": "npm run lint && npm run format"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tripathirajan/logtrace.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bugs": {
+    "url": "https://github.com/tripathirajan/logtrace/issues",
+    "email": "tripathirajan3@gmail.com"
+  },
+  "homepage": "https://github.com/tripathirajan/logtrace.git#readme"
+}
