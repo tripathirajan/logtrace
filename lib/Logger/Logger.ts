@@ -59,9 +59,10 @@ class Logger implements ILogger {
    * @param error
    * @param extra
    */
-  public exception(level: Level, error: Error, extra: any): void {
+  public exception(level: Level, error: Error | string, extra: any): void {
     const globalData = global as any;
     const req: any = globalData?.reqInfo;
+    if (typeof error === 'string') error = new Error(error);
     const frame = error?.stack?.split('\n')[1]?.split(' ');
     const filePath = frame && frame[frame?.length - 1]?.split('/');
     const fileInfo = filePath && filePath[filePath?.length - 1]?.split(':');
@@ -96,7 +97,7 @@ class Logger implements ILogger {
       fileName,
       lineNumber,
       errorType: error?.name,
-      stack: error?.stack,
+      stack: error?.stack || error,
       env: process.env.NODE_ENV || 'development',
     };
     this.log(level, errorInfo);

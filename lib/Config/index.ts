@@ -13,7 +13,7 @@ const showMessage = (message: string) => {
 
 try {
   const customConfig = fs.readFileSync(overrideConfigFilePath);
-  config = Object.assign(logConfig, customConfig);
+  config = Object.assign(logConfig, JSON.parse(customConfig.toString()));
 } catch (ex) {
   showMessage('To override default rules, create logRules.json at root of project and paste following configs:');
   showMessage(JSON.stringify(logConfig));
