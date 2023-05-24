@@ -1,6 +1,6 @@
 {
   "name": "@tripathirajan/logtrace",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "logger on the top of pino",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
