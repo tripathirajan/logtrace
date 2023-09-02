@@ -41,7 +41,7 @@ class Logger implements ILogger {
           return { logger: loggerName, logLevel: pino.levels.labels[level] };
         },
         formatters: {
-          level(label, logNumber) {
+          level(label, _logNumber) {
             return { level: label?.toUpperCase() };
           },
           bindings(bindings) {

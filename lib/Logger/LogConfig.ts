@@ -148,7 +148,7 @@ class LogConfig {
         {
           hideObject: true,
           messageFormat: (log: any, messageKey: string) => {
-            return `${log.message?.trim()} `;
+            return `[${loggerName}] ${(log[messageKey] || log?.message || '').trim()}`;
           },
           ...config,
         },
