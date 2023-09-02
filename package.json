@@ -1,6 +1,6 @@
 {
   "name": "@tripathirajan/logtrace",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "logger on the top of pino",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,13 +15,13 @@
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "prebuild": "npm run lint && npm run format",
+    "prebuild": "npm run lint && npm run format && npm run test",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node dist/index.js",
     "format": "prettier --write \"lib/**/*.ts\"",
     "lint": "tslint -p tsconfig.json --fix",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublishOnly": "npm run build",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A lib",
     "postversion": "git push && git push --tags",
